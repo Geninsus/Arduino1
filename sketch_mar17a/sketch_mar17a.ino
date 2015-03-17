@@ -16,7 +16,38 @@ void setup()
 
 void loop()
 {
-  SeqRVJ(1000);
+  seqCouleur();
+}
+
+void seqCouleur(){
+  if(digitalRead(8)==LOW){
+  Vert();
+  }
+  if(digitalRead(2)==LOW){
+  Jaune();
+  }
+  if(digitalRead(9)==LOW){
+  Rouge();
+  }  
+  
+}
+
+void Rouge(){
+ digitalWrite(8,HIGH);
+ delay(2000);
+ digitalWrite(8,LOW); 
+}
+
+void Vert(){
+ digitalWrite(2,HIGH);
+ delay(3000);
+ digitalWrite(2,LOW); 
+}
+
+void Jaune(){
+ digitalWrite(9,HIGH);
+ delay(1000);
+ digitalWrite(9,LOW); 
 }
 
 void SeqRVJ(int time)
