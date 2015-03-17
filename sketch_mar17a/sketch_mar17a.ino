@@ -17,9 +17,13 @@ void setup()
 }
 void tricolorLight(int timeoutR, int timeoutJ, int timeoutV)
 {
+    etatR = digitalRead(8);
+    ettJ = digitalRead(9);
+    etatV = digitalRead(3);
+    
     if(timeoutR < 2000)
     {
-      timeout = 2000;
+      timeoutR = 2000;
     }
     if(timeoutJ < 1000)
     {
@@ -29,21 +33,31 @@ void tricolorLight(int timeoutR, int timeoutJ, int timeoutV)
     {
        timeoutV = 3000;
     }
-    digitalWrite(ledRouge, HIGH);
-    delay(timeoutR);
     
-    digitalWrite(ledRouge, LOW);
-    digitalWrite(ledVerte, HIGH);
-    delay(timeoutV);
-    
-    digitalWrite(ledJaune, HIGH);
-    digitalWrite(ledVerte, LOW);
-    delay(timeoutJ);
-    
-    digitalWrite(ledVerte, LOW);
-    digitalWrite(ledJaune, LOW);
+    if(etatV == LOW && etatJ == LOW)
+    {
+      digitalWrite(ledRouge, HIGH);
+      delay(timeoutR);
+    }
+    if(etatV == LOW && etatJ == LOW && etatR == HIGH)
+    {
+      digitalWrite(ledRouge, LOW);
+      digitalWrite(ledVerte, HIGH);
+      delay(timeoutV);
+    }
+    if(etatR == LOW && etatV == HIGH)
+    {
+      digitalWrite(ledJaune, HIGH);
+      digitalWrite(ledVerte, LOW);
+      delay(timeoutJ); 
+    }
+    if(etatV == LOW && etatJ == HIGH)
+    {
+      digitalWrite(ledVerte, LOW);
+      digitalWrite(ledJaune, LOW);
+    }
 }
 void loop()
 {
-   tricolorLight(2000, 1000, 2000);
+   tricolorLight(5000, 3000, 6000);
 }
