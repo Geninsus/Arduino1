@@ -16,13 +16,18 @@ void setup()
 
 void loop()
 {
+  Tricolore(1000);
+}
+
+void Tricolore(time)
+{
   digitalWrite(8,HIGH);
-  delay(5000);
+  delay(time);
   digitalWrite(8,LOW);
   digitalWrite(9,HIGH);
-  delay(1000);
+  delay(time);
   digitalWrite(9,LOW);
   digitalWrite(2,HIGH);
-  delay(5000);
+  delay(time);
   digitalWrite(2,LOW);
 }
