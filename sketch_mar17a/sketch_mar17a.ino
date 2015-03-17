@@ -15,23 +15,35 @@ void setup()
     digitalWrite(2, LOW);
     digitalWrite(3, LOW);
 }
-void tricolorLight(int timeout1, int timeout2)
+void tricolorLight(int timeoutR, int timeoutJ, int timeoutV)
 {
+    if(timeoutR < 2000)
+    {
+      timeout = 2000;
+    }
+    if(timeoutJ < 1000)
+    {
+      timeoutJ = 1000;
+    }
+    if(timeoutV < 3000)
+    {
+       timeoutV = 3000;
+    }
     digitalWrite(ledRouge, HIGH);
-    delay(timeout1);
+    delay(timeoutR);
     
     digitalWrite(ledRouge, LOW);
     digitalWrite(ledVerte, HIGH);
-    delay(timeout1);
+    delay(timeoutV);
     
     digitalWrite(ledJaune, HIGH);
     digitalWrite(ledVerte, LOW);
-    delay(timeout2);
+    delay(timeoutJ);
     
     digitalWrite(ledVerte, LOW);
     digitalWrite(ledJaune, LOW);
 }
 void loop()
 {
-   tricolorLight(5000, 1000);
+   tricolorLight(2000, 1000, 2000);
 }
