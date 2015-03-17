@@ -10,27 +10,28 @@ void setup()
     pinMode(2, OUTPUT);
     pinMode(3, OUTPUT);
     
-    digitalWrite(8, HIGH);
-    digitalWrite(9, HIGH);
-    digitalWrite(2, HIGH);
-    digitalWrite(3, HIGH);
+    digitalWrite(8, LOW);
+    digitalWrite(9, LOW);
+    digitalWrite(2, LOW);
+    digitalWrite(3, LOW);
 }
-
+void tricolorLight(int timeout1, int timeout2)
+{
+    digitalWrite(ledRouge, HIGH);
+    delay(timeout1);
+    
+    digitalWrite(ledRouge, LOW);
+    digitalWrite(ledVerte, HIGH);
+    delay(timeout1);
+    
+    digitalWrite(ledJaune, HIGH);
+    digitalWrite(ledVerte, LOW);
+    delay(timeout2);
+    
+    digitalWrite(ledVerte, LOW);
+    digitalWrite(ledJaune, LOW);
+}
 void loop()
 {
-
-      digitalWrite(8, HIGH);
-      digitalWrite(9, HIGH);
-      digitalWrite(2, HIGH);
-      digitalWrite(3, HIGH);
-      
-      delay(1000);
-      
-      digitalWrite(8, LOW);
-      digitalWrite(9, LOW);
-      digitalWrite(2, LOW);
-      digitalWrite(3, LOW);
-      
-      delay(1000);
- 
+   tricolorLight(5000, 1000);
 }
