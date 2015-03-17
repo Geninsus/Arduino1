@@ -16,18 +16,38 @@ void setup()
 
 void loop()
 {
-  Tricolore(1000);
+  SeqRVJ(1000);
 }
 
-void Tricolore(time)
+void SeqRVJ(int time)
 {
-  digitalWrite(8,HIGH);
-  delay(time);
-  digitalWrite(8,LOW);
-  digitalWrite(9,HIGH);
-  delay(time);
-  digitalWrite(9,LOW);
+  int times;
+  
+  if(time<3000){
+    times=3000;
+  }else{
+    times=time;
+  }
   digitalWrite(2,HIGH);
-  delay(time);
+  delay(times);
   digitalWrite(2,LOW);
+  
+  digitalWrite(9,HIGH);
+  if(time<1000){
+    times=1000;
+  }else{
+    times=time;
+  }
+  delay(times);
+  
+  
+  digitalWrite(9,LOW);
+  digitalWrite(8,HIGH);
+  if(time<2000){
+    times=2000;
+  }else{
+    times=time;
+  }
+  delay(times);
+  digitalWrite(8,LOW);
 }
