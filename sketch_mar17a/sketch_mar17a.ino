@@ -14,9 +14,18 @@ void setup()
   digitalWrite(3,LOW);
 }
 
-void loop()
-{
-  seqCouleur();
+void loop(){
+ 
+ digitalWrite(9,HIGH);
+ delay(100);
+ digitalWrite(9,LOW);
+ digitalWrite(2,HIGH);
+ delay(100);
+ digitalWrite(2,LOW);
+ digitalWrite(8,HIGH);
+ delay(100);
+ digitalWrite(8,LOW);
+ delay(100);
 }
 
 void seqCouleur(){
