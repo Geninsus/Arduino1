@@ -2,7 +2,7 @@
 # define LedJaune 9 // Led yellow
 # define LedVerte 2 // Led green
 # define LedBleue 3 // Led blue
-int tab[8]={0,0,0,1,0,0,0,0};
+int tab[8]={0,1,0,1,0,1,0,1};
 int deb=0,i=0;
 byte table = B01010101;
 byte mask = B00000001;
